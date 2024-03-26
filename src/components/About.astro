@@ -1,0 +1,134 @@
+<section id="about">
+    <div id="images">
+        <img src="/about2.jpg" alt="" id="img1" class="trio">
+        <img src="/about1.jpg" alt="" id="img2" class="trio">
+        <img src="/about3.jpg" alt="" id="img3" class="trio">
+    </div>
+    <div id="text">
+        <h1>ABOUT US</h1>
+        <h2>Unlock the Secret to Simple Landscaping by Creating Serenity in Every Space.</h2>
+        <p>This is the paragraph element. Paragraph elements are block-level elements that are used to represent simple chunks of text. Paragraph elements are block-level elements perfect for representing text. This is the paragraph element. </p>
+        <a href="">EXPLORE SERVICES
+            <img src="/arrow-right.svg" alt="" id="arrow">
+        </a>
+    </div>
+</section>
+
+<style>
+    #about {
+        display: flex;
+        padding-top: 3rem;
+        padding-bottom: 10rem;
+    }
+    #images,
+    #text {
+        flex-basis: 50%;
+    }
+    #images {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    .trio {
+        box-shadow: 2px 4px 20px 2px #263528;
+        margin: 0 2rem;
+        opacity: 0;
+        transform: translateY(3rem);
+        transition: 600ms;
+    }
+    .show {
+        opacity: 1;
+        transform: translate(0);
+    }
+    #img1 {
+        height: 300px;
+    }
+    #img2 {
+        width: 275px;
+    }
+    #img3 {
+        height: 250px;
+        position: absolute;
+        top: 40%;
+    }
+    #text {
+        display: flex;
+        flex-direction: column;
+        padding-left: 2rem;
+        padding-right: 1rem;
+    }
+    h1 {
+        letter-spacing: 1px;
+        margin-top: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    h2 {
+        font-weight: 500;
+        font-size: 2.25rem;
+        line-height: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+    p {
+        width: 80%;
+        margin-bottom: 1.5rem;
+    }
+    a {
+        color: #263528;
+        font-size: 1.1rem;
+        letter-spacing: 2px;
+        text-decoration: none;
+    }
+    
+    a:hover #arrow {
+        transform: translateX(5px);
+    }
+    #arrow {
+        width: 1rem;
+        transition: 200ms ease-in-out;
+    }
+    @media (max-width: 65rem) {
+        #about {
+            flex-direction: column;
+            padding-bottom: 5rem;
+        }
+        #text {
+            margin-top: 3rem;
+        }
+    }
+    @media (max-width: 38rem) {
+        h2 {
+            font-size: 1.75rem;
+            line-height: 2rem;
+        }
+        .trio {
+            margin: 0 1rem;
+        }
+        #img1 {
+            width: 30vw;
+            height: auto;
+        }
+        #img2 {
+            width: 40vw;
+        }
+        #img3 {
+            width: 30vw;
+            height: auto;
+        }
+    }
+</style>
+
+<script>
+    const imgTrio = document.querySelectorAll(".trio");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add("show");
+        })
+    },
+    {
+        threshold: 0.3,
+    })
+
+    imgTrio.forEach(img => observer.observe(img));
+</script>

@@ -1,0 +1,81 @@
+<main id="home">
+    <div class="home-content" id="home-text">
+        <h1>Landscaping</h1>
+        <h1>made <span>Simple.</span></h1>
+        <h2>Discover the Art of Easy Landscaping | Streamlined Designs for Timeless Beauty</h2>
+        <div id="btn-box">
+            <a href="#quote">
+                <button>Free Quote</button>
+            </a>
+            <a href="#about">
+                <button>Learn More</button>
+            </a>
+        </div>
+    </div>
+    <div class="home-content" id="home-img">
+        <img src="/hero-img.jpg" alt="landscaping hero">
+    </div>
+</main>
+
+<style>
+    main {
+        display: flex;
+        justify-content: center;
+    }
+    .home-content {
+        flex-basis: 50%;
+        margin: 0 2rem 2rem 2rem;
+    }
+    #home-text {
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    h1 {
+        font-size: 5vw;
+    }
+    span {
+        font-weight: 300;
+    }
+    h2 {
+        font-size: 1.75vw;
+        font-weight: 300;
+        margin: 2rem 0;
+    }
+    img {
+        width: 100%;
+    }
+    button {
+        border: 2px solid #263528;
+        border-radius: 1rem;
+        padding: 0.5rem 1.5rem;
+        cursor: pointer;
+        transition: 200ms ease-in-out;
+    }
+    a[href="#quote"] button {
+        background-color: #e6f2e5;
+        color: #263528;
+        margin-right: 0.5rem;
+    }
+    a[href="#about"] button {
+        background-color: #263528;
+        color: #e6f2e5;
+    }
+    button:hover {
+        transform: translateY(-2px); 
+    }
+    @media (max-width: 60rem) {
+        main {
+            flex-direction: column;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        h1:nth-of-type(1) {
+            margin-top: 2rem;
+        }
+        h2 {
+            font-size: 1.25rem;
+        }
+    }
+</style>

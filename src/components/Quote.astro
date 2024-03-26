@@ -1,0 +1,123 @@
+<section id="quote">
+    <div id="text">
+        <h1 class="quote-io">Get a Free Quote</h1>
+        <h2 class="quote-io">Lorem ipsum dolor sit amet consectetur adipisicing elit. Provident, dicta autem quae est et sunt, voluptatem temporibus.</h2>
+    </div>
+    <form action="">
+        <input type="text" placeholder="Fullname">
+        <input type="email" name="email" id="" placeholder="Email">
+        <input type="tel" name="phone" id="" placeholder="Phone">
+        <textarea rows="10" name="message" id="" placeholder="Please include all services of interest"></textarea>
+        <button>Submit</button>
+    </form>
+</section>
+
+<style>
+    #quote {
+        display: flex;
+        align-items: center;
+    }
+    #text,
+    form {
+        margin: 1rem;
+    }
+    #text {
+        padding: 10% 0;
+        border-right: 2px solid #263528;
+    }
+    h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+    }
+    h2 {
+        font-weight: 300;
+        width: 75%;
+        margin: 0.5rem;
+        line-height: 2rem;
+    }
+    .quote-io {
+        opacity: 0;
+        transition: 500ms;
+        transform: translateY(3rem);
+    }
+    .show {
+        opacity: 1;
+        transform: translate(0);
+    }
+    form {
+        flex-basis: 60%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+    input {
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid #263528;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        width: 60%;
+    }
+    textarea {
+        background-color: transparent;
+        padding: 0.5rem;
+        margin: 0.5rem 0;
+        width: 80%;
+        resize: none;
+    }
+    input::placeholder,
+    textarea::placeholder {
+        letter-spacing: 2px;
+    }
+    input:focus,
+    textarea:focus {
+        border: none;
+        outline: none;
+        outline: 1px solid #263528;
+    }
+    button {
+        width: 8rem;
+        display: inline;
+        background-color: #263528;
+        color: #e6f2e5;
+        border: 1px solid #263528;
+        border-radius: 0.5rem;
+        padding: 0.75rem 1rem;
+        margin-top: 0.5rem;
+        letter-spacing: 1px;
+        transition: 250ms;
+    }
+    button:hover {
+        background-color: #e6f2e5;
+        color: #263528;
+    }
+    @media (max-width: 60rem) {
+        #quote {
+            flex-direction: column;
+            margin-top: 2rem;
+        }
+        #text {
+            border: none;
+            padding: 0;
+        }
+        form {
+            width: 100%;
+            padding-left: 1.5rem;
+        }
+    }
+</style>
+<script>
+    const headers = document.querySelectorAll(".quote-io");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add("show");
+        })
+    },
+    {
+        threshold: 1,
+    })
+
+    headers.forEach(header => observer.observe(header));
+</script>

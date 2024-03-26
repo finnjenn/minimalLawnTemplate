@@ -1,0 +1,142 @@
+<header>
+    <nav>
+        <button id="nav-toggle" aria-controls="primary-nav" aria-expanded="false">
+            <span class="sr-only">Menu</span>
+          </button>
+        <a href="/" id="logo-link">
+            <!-- Pick Image OR Text -->
+            <!-- <img src="/images/logo.svg" alt="Logo" id="logo"> -->
+            <span id="logo-text">MINIMALIST LAWN CARE</span>
+        </a>
+        <ul id="primary-nav" data-mobile-nav-visible="false">
+            <li class="nav-item"><a href="#home" class="nav-link">Home</a></li>
+            <li class="nav-item"><a href="#services" class="nav-link">Services</a></li>
+            <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+            <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+            <li id="quote-btn" class="nav-item"><a href="#quote" class="nav-link">Get a Quote</a></li>
+        </ul>
+    </nav>
+</header>
+
+<style>
+    header {
+        position: sticky;
+        top: 0;
+        z-index: 999;
+        background-color: #e6f2e5;
+    }
+    nav {
+        display: flex;
+        align-items: center;
+        padding: 1rem 0;
+    }
+    a {
+        text-decoration: none;
+        color: black;
+    }
+    #nav-toggle {
+        display: none;
+        cursor: pointer;
+        z-index: 9999;
+    }
+    #logo {
+        display: inline;
+    }
+    #logo-text {
+        margin-left: 2rem;
+        font-weight: 500;
+        color: #263528;
+        letter-spacing: 1px;
+    }
+    #primary-nav {
+        display: flex;
+        align-items: baseline;
+        margin-left: auto;
+    }
+    .nav-item {
+        cursor: pointer;
+        margin: 0 1rem;
+        transition: 200ms ease-in-out;
+    }
+    .nav-item:hover {
+        transform: translateY(-2px);
+    }
+    .nav-link {
+        color: #263528;
+        letter-spacing: 1px;
+        font-weight: 300;
+    }
+    #quote-btn {
+        background-color: #263528;
+        border: 2px solid #263528;
+        border-radius: 0.5rem;
+        padding: 0.5rem;
+    }
+    #quote-btn > a {
+        color: #e6f2e5;
+        font-weight: 400;
+    }
+    @media (max-width: 60rem) {
+        #nav-toggle {
+            display: block;
+            position: fixed;
+            top: 1rem;
+            right: 1.5rem;
+            background-image: url("/menu.svg");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: cover;
+            background-color: transparent;
+            border: none;
+            width: 2rem;
+            height: 2rem;
+        }
+        #nav-toggle[aria-expanded="true"] {
+            background-image: url("/x.svg");
+        }
+        #primary-nav {
+            background-color: #263528;
+            padding-top: 3rem;
+            z-index: 999;
+            position: fixed;
+            /* Change last percentage for how far menu slides out */
+            inset: 0 0 0 60%;
+            transform: translateX(100%);
+            flex-direction: column;
+            align-items: start;
+            transition: 500ms ease-in-out;
+        }
+        #primary-nav[data-mobile-nav-visible="true"] {
+            transform: translateX(0%);
+        }
+        .nav-item {
+            margin: 1rem;
+        }
+        .nav-link {
+            color: #e6f2e5;
+        }
+        #quote-btn {
+            background-color: #e6f2e5;
+            margin: 0 0 0 0.5rem;       
+        }
+        #quote-btn > a {
+            color: #263528;
+        }
+    }
+</style>
+
+<script>
+    const primaryNav = document.querySelector("#primary-nav");
+    const navToggle = document.querySelector("#nav-toggle");
+    navToggle?.addEventListener("click", () => {
+      console.log("nav toggle clicked");
+      const isNavVisible = primaryNav?.getAttribute("data-mobile-nav-visible");
+      if (isNavVisible === "false") {
+        primaryNav?.setAttribute("data-mobile-nav-visible", "true");
+        navToggle.setAttribute("aria-expanded", "true");
+      } else {
+        primaryNav?.setAttribute("data-mobile-nav-visible", "false");
+        navToggle.setAttribute("aria-expanded", "false");
+      }
+    });
+  </script>

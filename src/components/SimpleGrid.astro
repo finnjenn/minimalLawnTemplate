@@ -1,0 +1,99 @@
+<div id="main-grid">
+    <div class="grid-item">
+        <img src="/mowing.jpg" alt="" class="grid-img">
+        <h1>MOWING</h1>
+        <p>This is the paragraph element. Paragraph elements are block-level elements that are used to represent simple chunks of text.</p>
+    </div>
+    <div class="grid-item">
+        <img src="/shrub.jpg" alt="" class="grid-img">
+        <h1>SHRUB TRIMMING</h1>
+        <p>This is the paragraph element. Paragraph elements are block-level elements that are used to represent simple chunks of text.</p>
+    </div>
+    <div class="grid-item">
+        <img src="/mulch.jpg" alt="" class="grid-img">
+        <h1>MULCH REFRESHING</h1>
+        <p>This is the paragraph element. Paragraph elements are block-level elements that are used to represent simple chunks of text.</p>
+    </div>
+    <div class="grid-item">
+        <img src="/raking.jpg" alt="" class="grid-img">
+        <h1>LEAF CLEANUP</h1>
+        <p>This is the paragraph element. Paragraph elements are block-level elements that are used to represent simple chunks of text.</p>
+    </div>
+    <div class="grid-item">
+            <img class="grid-img" src="/design.jpg" alt="">
+        <h1>LANDSCAPE DESIGN</h1>
+        <p>This is the paragraph element. Paragraph elements are block-level elements that are used to represent simple chunks of text.</p>
+    </div>
+    <div class="grid-item">
+        <img src="/fence.jpg" alt="" class="grid-img">
+        <h1>FENCING</h1>
+        <p>This is the paragraph element. Paragraph elements are block-level elements that are used to represent simple chunks of text.</p>
+    </div>
+</div>
+
+<style>
+    #main-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .grid-item {
+        border-radius: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 4rem;
+        opacity: 0;
+        transform: translateY(2rem);
+        transition: 0.5s ease-in-out;
+    }
+    .grid-img {
+        width: 15rem;
+        aspect-ratio: 1;
+        object-fit: cover;
+    }
+    h1 {
+        font-weight: 300;
+        letter-spacing: 1px;
+        margin: 1rem 0;
+    }
+    p {
+        width: 70%;
+        text-align: center;
+        line-height: 1.5rem;
+    }
+    .show {
+        opacity: 1;
+        transform: translate(0);
+    }
+    @media (max-width: 60rem) {
+        #main-grid {
+            grid-template-columns: 1fr 1fr;
+        }
+    }
+    @media (max-width: 40rem) {
+        #main-grid {
+            grid-template-columns: 1fr;
+        }
+        .grid-img {
+            width: 60%;
+        }
+        p {
+            width: 65%;
+        }
+    }
+</style>
+
+<script>
+    const services = document.querySelectorAll(".grid-item");
+
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) entry.target.classList.add("show");
+        })
+    },
+    {
+        threshold: 0.1,
+    })
+
+    services.forEach(service => observer.observe(service));
+</script>

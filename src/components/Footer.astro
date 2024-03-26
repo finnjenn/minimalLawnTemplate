@@ -1,0 +1,106 @@
+<section>
+    <div id="text">
+        <div class="text-item">
+            <h1>VISIT US</h1>
+            <p>100 Main Street</p>
+            <p>Cityville, ST 09876</p>
+        </div>
+        <div class="text-item">
+            <h1>HOURS</h1>
+            <span>Mon - Fri : 9am - 5pm</span>
+            <span>Sat : 2pm - 7pm</span>
+            <span>Sun : 12pm - 5pm</span>
+        </div>
+        <div class="text-item">
+            <h1>SOCIALS</h1>
+            <p>Instagram</p>
+            <p>Facebook</p>
+            <p>Twitter</p>
+        </div>
+    </div>
+    <div id="subscribe">
+        <label for="sub-input">Subscribe to our Newsletter</label>
+        <div id="sub-action">
+            <input type="text" name="sub-input" id="sub-input">
+            <button>Subscribe</button>
+        </div>
+    </div>
+</section>
+
+<style>
+    section {
+        background-color: #263528;
+        color: #e6f2e5;
+        display: flex;
+        padding: 3rem 1rem;
+        margin-top: 2rem;
+    }
+    #text {
+        flex-basis: 60%;
+        display: flex;
+        justify-content: space-evenly;
+    }
+    .text-item {
+        display: flex;
+        flex-direction: column;
+    }
+    h1 {
+        font-weight: 500;
+        letter-spacing: 1px;
+    }
+    #subscribe {
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    label {
+        letter-spacing: 1px;
+        margin-bottom: 0.5rem;
+        font-size: 1.1rem;
+    }
+    input {
+        width: 90%;
+        background-color: #e6f2e5;
+        color: #263528;
+        font-size: 1.2rem;
+        border: none;
+        margin-bottom: 0.75rem;
+        padding: 0.25rem;
+    }
+    input:focus {
+        outline: none;
+    }
+    button {
+        background-color: transparent;
+        color: #e6f2e5;
+        border: 1px solid #e6f2e5;
+        border-radius: 0.5rem;
+        padding: 0.5rem 1rem;
+        transition: 200ms;
+    }
+    button:hover {
+        background-color: #e6f2e5;
+        color: #263528;
+    }
+    @media (max-width: 50rem) {
+        section {
+            flex-direction: column;
+        }
+        #subscribe {
+            margin-top: 2rem;
+        }
+    }
+    @media (max-width: 30rem) {
+        section {
+        }
+        #text {
+            flex-wrap: wrap;
+            justify-content: start;
+        }
+        .text-item {
+            margin: 1rem;
+        }
+        
+    }
+</style>
